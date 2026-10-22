@@ -1,0 +1,8 @@
+numpy>=1.26
+scipy>=1.11
+sounddevice>=0.4.6
+soundfile>=0.12
+librosa>=0.10.2
+soxr>=0.3.7
+scikit-learn>=1.5
+joblib>=1.4

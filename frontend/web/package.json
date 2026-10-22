@@ -1,0 +1,9 @@
+{
+  "name": "nexo-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interface web do NEXO — Assistente de Estudos por Voz",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

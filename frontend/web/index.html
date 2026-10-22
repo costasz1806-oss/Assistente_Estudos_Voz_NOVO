@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEXO — Assistente de Estudos por Voz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="fundo" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="topo">
+      <div class="marca">
+        <div class="logo" aria-hidden="true">N</div>
+        <div class="marca-texto">
+          <h1>N E X O</h1>
+          <p>Assistente de estudos por voz · rede neural</p>
+        </div>
+      </div>
+
+      <div class="estado vazio" id="estado">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="estadoTexto">Verificando modelo...</span>
+      </div>
+    </header>
+
+    <main class="grade">
+      <section class="painel estudio">
+        <div class="titulo-painel">
+          <h2>Central de comando</h2>
+          <span class="selo" id="seloSistema">AO VIVO</span>
+        </div>
+
+        <div class="orbita" id="orbita">
+          <div class="orbita-halo" aria-hidden="true"></div>
+          <canvas id="visualizador" width="360" height="360"></canvas>
+          <div class="orbita-centro">
+            <span class="orbita-label" id="orbitaLabel">PRONTO</span>
+            <span class="orbita-sub" id="orbitaSub">Grave um exemplo para começar</span>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="classe">Classe do exemplo</label>
+          <div class="select-wrap">
+            <select id="classe">
+              <option value="anotar">anotar</option>
+              <option value="gravar">gravar</option>
+              <option value="pesquisar">pesquisar</option>
+              <option value="pausar">pausar</option>
+              <option value="outro">outro</option>
+              <option value="outro (frase livre)">outro (frase livre)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo oculto" id="campoFrase">
+          <label for="frase">Frase que você vai falar</label>
+          <input id="frase" type="text" maxlength="120" placeholder="Ex.: vou estudar mais tarde" autocomplete="off" />
+        </div>
+
+        <div class="acoes">
+          <button class="botao primario" id="btnGravar">
+            <span class="icone" aria-hidden="true"></span>
+            Gravar exemplo
+          </button>
+          <button class="botao" id="btnTreinar">
+            <span class="icone anel" aria-hidden="true"></span>
+            Treinar rede
+          </button>
+          <button class="botao" id="btnReconhecer">
+            <span class="icone onda" aria-hidden="true"></span>
+            Reconhecer voz
+          </button>
+          <button class="botao fantasma" id="btnMicrofone">
+            <span class="icone ponto" aria-hidden="true"></span>
+            Testar microfone
+          </button>
+        </div>
+
+        <p class="dica" id="dica">Cada captura dura 3 segundos. O ruído das bordas é removido automaticamente.</p>
+      </section>
+
+      <div class="coluna">
+        <section class="painel palco">
+          <div class="titulo-painel">
+            <h2>Resultado</h2>
+            <span class="selo suave" id="seloClasse">—</span>
+          </div>
+
+          <div class="predicao">
+            <span class="predicao-label" id="predicaoLabel">AGUARDANDO</span>
+            <p class="predicao-texto" id="predicaoTexto">Reconheça um comando para ver a resposta do assistente.</p>
+
+            <div class="confianca">
+              <div class="confianca-topo">
+                <span>Confiança</span>
+                <strong id="predicaoConf">—</strong>
+              </div>
+              <div class="barra"><div class="barra-preenchida" id="predicaoBarra"></div></div>
+            </div>
+          </div>
+
+          <div class="contagens" id="contagens"></div>
+        </section>
+
+        <section class="painel console">
+          <div class="titulo-painel">
+            <h2>Log do sistema</h2>
+            <button class="limpar" id="btnLimpar" type="button">LIMPAR</button>
+          </div>
+          <div class="terminal" id="terminal" role="log" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+
+    <section class="painel relatorio oculto" id="relatorio">
+      <div class="titulo-painel">
+        <h2>Relatório de treinamento</h2>
+        <button class="limpar" id="btnFecharRelatorio" type="button">FECHAR</button>
+      </div>
+      <div class="metricas" id="metricas"></div>
+      <div class="matriz" id="matriz"></div>
+      <pre class="relatorio-texto" id="relatorioTexto"></pre>
+    </section>
+
+    <footer class="rodape">
+      <span>MFCC + rede neural MLP</span>
+      <span id="rodapeStatus">Verificando ambiente...</span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

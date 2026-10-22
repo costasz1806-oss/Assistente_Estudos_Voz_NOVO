@@ -1,0 +1,6 @@
+Gravacoes WAV serao organizadas em subpastas por classe automaticamente pela interface.
+
+A pasta "outro" recebe tanto a palavra "outro" quanto as frases livres informadas
+na hora da gravacao (opcao "outro (frase livre)").
+
+Nao apague os arquivos .wav: eles sao os dados de treino do modelo.

@@ -1,0 +1,6 @@
+O modelo treinado e os relatorios serao salvos nesta pasta depois do treinamento.
+
+Arquivos gerados:
+- nexo_mlp.joblib  -> modelo pronto (carregado automaticamente ao abrir o programa)
+- classes.json     -> lista de classes reconhecidas
+- resultado.json   -> acuracias, relatorio por classe e matriz de confusao
